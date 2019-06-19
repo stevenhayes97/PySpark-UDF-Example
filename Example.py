@@ -24,15 +24,12 @@ UDFwithDF = data.select("*", myPythonUDF("test1").alias("test1WithUDF"))
 # Displays the dataframe in Databricks where I tested this example
 display(UDFwithDF)
 
-
+# Create a temp table from PySpark dataframe
+data.createOrReplaceTempView("data_table")
 
 ########################################
 Run this in SQL
 ########################################
-
-# Create a temp table from PySpark dataframe
-
-data.createOrReplaceTempView("data_table")
 
 SELECT test1,
   test2,
